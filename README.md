@@ -44,7 +44,7 @@
   - Jun Lang
   
 ### Team 6
-- Project : Potion Explosion
+- Project : Potion Explosion <a href="https://www.horrible-games.com/wp-content/uploads/2015/09/PE_Rulebook_ENG_v10_light.pdf">Rules</a>
 - members: 
   - Caroline Pan
   - Jennifer Ong
