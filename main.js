@@ -1,6 +1,25 @@
 $(document).ready(startApp);
 
 
+function startApp() {
+    onedie = new Dice();
+    var a = onedie.render();
+    $('body').append(a);
+}
+function startApp() {
+    allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
+    for (var i = 0; i < allDice.length; i++) {
+        var domElement = allDice[i].render();
+        $("body").append(domElement);
+    }
+}
+
+function rollAllDice() {
+    for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {
+        allDice[diceIndex].roll();
+    }
+}
+
 class Monster {
     constructor(monsterName, image) {
         this.name = monsterName; //is a property of the object, 
