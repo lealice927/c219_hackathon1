@@ -1,4 +1,4 @@
-$(document).ready(startApp);
+
 
 class KingOfTokyo {
     constructor(){
