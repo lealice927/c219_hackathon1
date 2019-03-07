@@ -1,12 +1,10 @@
-$(document).ready(startApp);
 
+// function initialize_plays(){
 
+// }
 
-fucntion initialize_plays(){
+// class Player{
+//     constructor ()
+//     this.currentStats = ["Health" + 
+// }
 
-}
-
-class Player{
-    constructor ()
-    this.currentStats = ["Health" + 
-}
