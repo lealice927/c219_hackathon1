@@ -1,17 +1,12 @@
 $(document).ready(startApp);
 
-
-function startApp() {
-    onedie = new Dice();
-    var a = onedie.render();
-    $('body').append(a);
-}
 function startApp() {
     allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
     for (var i = 0; i < allDice.length; i++) {
         var domElement = allDice[i].render();
         $("body").append(domElement);
     }
+    new KingOfTokyo();
 }
 
 function rollAllDice() {
@@ -22,15 +17,14 @@ function rollAllDice() {
 
 class Monster {
     constructor(monsterName, image) {
-        this.name = monsterName; //is a property of the object, 
-        // storage for data of the object, 
-        // setting it to local variable called name
+        this.name = monsterName;
         this.image = image;
         this.inTokyo = false;
+        this.life = true;
         this.points = {
             health: 10,
             victory: 0,
-            electricity: 0
+            bolt: 0
         }
     }
     enterTokyo() {
@@ -65,5 +59,11 @@ class Monster {
         }
         return this.points.victory;
     }
+
+    die(attacker) {
+        this.life = false;
+        this.speak('You died! You were killed by ' + attacker.Monster);
+    }
 }
 var testMonster = new Monster("Cyber Kitty");
+var testMonster = new Monster("Space Penguin");

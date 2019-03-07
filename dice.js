@@ -10,8 +10,6 @@ class Dice{
         var randomFace = this.availableFaces[randomFaceIndex];
         this.domElement.text( randomFace );
         
-
-   
     }
     render(){
         this.domElement = $("<div>")
