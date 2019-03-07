@@ -2,4 +2,15 @@
     height: 50px;
     width: 50px;
     border: 1px solid black;
+    
 }
+button {
+    background-color: rgb(210, 64, 45);
+    border-radius: 6px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-transform: uppercase;
+    width: 100px;
+    cursor: pointer;
+  }
