@@ -1,11 +1,16 @@
 $(document).ready(startApp);
 
+var player1;
+var player2;
+
 function startApp() {
     allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
     for (var i = 0; i < allDice.length; i++) {
         var domElement = allDice[i].render();
         $("body").append(domElement);
     }
+
+//     landing = new LandingPage();
     new KingOfTokyo();
 }
 
@@ -26,13 +31,18 @@ class Monster {
             victory: 0,
             bolt: 0
         }
+
+//         this.attack = function(){
+//             console.log("you got attacked")
+//         }
     }
+  
     enterTokyo() {
         if (this.inTokyo) {
             return;
         }
         this.inTokyo = true;
-        this.changeVictoryPoints(1);
+        this.changeVictoryPoints(1); //should only add once a turn
     }
     leaveTokyo() {
         this.inTokyo = false;
@@ -40,7 +50,7 @@ class Monster {
     changeHealth(amount) {
         if (this.inTokyo && amount > 0) {
             console.warn('cannot gain health while in tokyo');
-            return;
+            return ;
         }
         this.points.health += amount;
         if (this.points.health < 0) {
@@ -59,6 +69,11 @@ class Monster {
         }
         return this.points.victory;
     }
+
+//     changeBoltPoints(amount) {
+//         this.points.bolt += amount;
+//     }
+}
 
     die(attacker) {
         this.life = false;
