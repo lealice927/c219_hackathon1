@@ -21,7 +21,7 @@ class Dice{
         var randomFaceIndex = Math.floor(Math.random() * this.availableFaces.length);
         var randomFace = this.availableFaces[randomFaceIndex];
         this.domElement.text( randomFace );
-       
+
     }
     render(){
         this.domElement = $("<div>")
