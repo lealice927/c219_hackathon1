@@ -1,22 +1,3 @@
-// class DiceContainer{
-//     constructor(){
-//        // this.selectedDice = [];
-//         this.Dice = [];
-//        // this.rollsRemaining = 3;
-//     }
-// }
-//use push method to send dice to selected dice
-// class SelectedDice{
-//     constructor(){
-//        return this.selectedDice.add( randomFace );
-//     }
-// }
-// var faceValue = this.availableFaces;
-//     this.fist = attack(-1);
-//     this.heart = heal(1);
-//     this.
-
-
 class Dice{
     constructor(){
         this.availableFaces = [{

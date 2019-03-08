@@ -1,6 +1,5 @@
 $(document).ready(startApp);
 
-
 function startApp() {
     allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
     for (var i = 0; i < allDice.length; i++) {
@@ -10,10 +9,7 @@ function startApp() {
     $("button").click(rollAllDice);
     new KingOfTokyo();
 }
-
 function rollAllDice() {
-
-
 
     // var results = [];
     // for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {        
@@ -70,17 +66,16 @@ class Monster {
         //}
     }
 
-
     enterTokyo() {
         if (this.inTokyo) {
             return;
-        } 
+        }
         this.inTokyo = true;
         this.cyberKitty = enterTokyo;
         if (this.diceResult) {
-            return;//return somewhere, not sure yet
+            return;
         }
-        
+
         this.changeVictoryPoints(diceResult);
         this.changeHealth(0);
         this.attack;
@@ -96,8 +91,7 @@ class Monster {
         this.inTokyo = false;
         this.spacePenguin = inTokyo;
     }
- 
-      
+
     changeHealth(amount) {
         if (this.inTokyo && amount > 0) {
             console.warn('cannot gain health while in tokyo');
@@ -127,12 +121,6 @@ class Monster {
     }
 
 }
-
-
-    //     changeBoltPoints(amount) {
-    //         this.points.bolt += amount;
-    //     }
-
 // die(attacker) {
 //     this.life = false;
 //     this.speak('You died! You were killed by ' + attacker.Monster);
