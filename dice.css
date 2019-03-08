@@ -1,10 +1,25 @@
-.dice{
+.diceContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+ }
+ 
+ 
+ .dice{
     height: 50px;
     width: 50px;
-    border: 1px solid black;
-    
-}
-button {
+    border: 2px solid green;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: green;
+    text-align: center;
+    font-size: 1rem;
+ 
+ }
+ button {
     background-color: rgb(210, 64, 45);
     border-radius: 6px;
     border: none;

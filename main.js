@@ -5,21 +5,24 @@ function startApp() {
     for (var i = 0; i < allDice.length; i++) {
         var domElement = allDice[i].render();
         $("body").append(domElement);
+        $("button").click(rollAllDice);
     }
     new KingOfTokyo();
 }
 
 function rollAllDice() {
+
     for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {
         allDice[diceIndex].roll();
+        console.log(this.rollAllDice);
     }
 }
 
 class Monster {
-    constructor(monsterName, image) {
+    constructor(monsterName, image, inTokyo) {
         this.name = monsterName;
         this.image = image;
-        this.inTokyo = false;
+        this.inTokyo = inTokyo;
         this.life = true;
         this.points = {
             health: 10,
@@ -27,16 +30,34 @@ class Monster {
             bolt: 0
         }
     }
+
+
     enterTokyo() {
         if (this.inTokyo) {
             return;
-        }
+        } 
         this.inTokyo = true;
-        this.changeVictoryPoints(1);
+        this.testMonster1 = enterTokyo;
+        if (this.diceResult) {
+            return;//return somewhere, not sure yet
+        }
+        
+        this.changeVictoryPoints(diceResult);
+        this.changeHealth(0);
+        this.attack;
     }
+
     leaveTokyo() {
+        if (this.diceResult) {
+            return;
+        }
+        this.changeHealth(diceResult);
+        this.changeVictoryPoints(diceResult);
         this.inTokyo = false;
+        this.testMonster2 = inTokyo;
     }
+ 
+      
     changeHealth(amount) {
         if (this.inTokyo && amount > 0) {
             console.warn('cannot gain health while in tokyo');
@@ -64,6 +85,7 @@ class Monster {
         this.life = false;
         this.speak('You died! You were killed by ' + attacker.Monster);
     }
+
 }
-var testMonster = new Monster("Cyber Kitty");
-var testMonster = new Monster("Space Penguin");
+var testMonster1 = new Monster("Cyber_Kitty");
+var testMonster2 = new Monster("Space_Penguin");

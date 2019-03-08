@@ -2,7 +2,7 @@
 
 class KingOfTokyo {
     constructor() {
-        debugger;
+        
         this.insideTokyoElement = $(".insideTokyo");
         this.outsideTokyoElement = $(".outsideTokyo");
         this.monsterElements = [];

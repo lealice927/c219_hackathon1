@@ -11,12 +11,19 @@ class DiceContainer{
 //        return this.selectedDice.add( randomFace );
 //     }
 // }
+// var faceValue = this.availableFaces;
+//     this.fist = attack(-1);
+//     this.heart = heal(1);
+//     this.
+
+
 class Dice{
     constructor(){
-        this.availableFaces = [1,2,3,'Fist','Bolt','Heart'];
+        this.availableFaces = [1,2,3,'Fist','Heart'];
         this.domElement = null;
-       // this.dice.push( selectedDice );
+        //this.dice.push( selectedDice );
     }
+    
     roll(){
         var randomFaceIndex = Math.floor(Math.random() * this.availableFaces.length);
         var randomFace = this.availableFaces[randomFaceIndex];
@@ -26,7 +33,7 @@ class Dice{
     render(){
         this.domElement = $("<div>")
             .addClass('dice')
-            .text('?')
+            .text('KOT')
         return this.domElement;
     }
 }
