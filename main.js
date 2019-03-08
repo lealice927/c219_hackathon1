@@ -1,7 +1,6 @@
 $(document).ready(startApp);
 
 
-
 function startApp() {
     allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
     for (var i = 0; i < allDice.length; i++) {
@@ -16,12 +15,43 @@ function rollAllDice() {
 
 
 
-    var results = [];
+    // var results = [];
+    // for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {        
+    //     results.push(allDice[diceIndex].roll());
+        
+    // }
+    var victoryPoint = 0;
+    var heart = 0;
+    var damage = 0;
     for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {        
-        results.push(allDice[diceIndex].roll());
-
+        var rolledDice = allDice[diceIndex].roll()
+        if (rolledDice.points) {
+            victoryPoint += rolledDice.points;
+        } else if (rolledDice.health > 0) {
+            heart += rolledDice.health;
+        } else if (rolledDice.health < 0) {
+            damage += rolledDice.health;
+        }
     }
+
+    console.log("Heart ", heart);
+    console.log("Damage ", damage);
+    console.log("Victory Point ", victoryPoint);
+
+    var currentMonster = players[0];
+    var opposingMonster = players[1];
+
+    currentMonster.changeHealth(heart);
+    currentMonster.changeVictoryPoints(victoryPoint);
+    opposingMonster.changeHealth(damage);
+
+    changeTurns();
     console.log(results);
+}
+
+function changeTurns() {
+    var next = players.shift();
+    players.push(next);
 }
 
 class Monster {
@@ -107,5 +137,5 @@ class Monster {
 //     this.life = false;
 //     this.speak('You died! You were killed by ' + attacker.Monster);
 // }
-var cyberKitty = new Monster("Cyber Kitty");
-var spacePenguin = new Monster("Space Penguin");
+
+var players = [new Monster("Cyber Kitty"), new Monster("Space Penguin")];

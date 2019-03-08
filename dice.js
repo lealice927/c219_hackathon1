@@ -19,14 +19,31 @@
 
 class Dice{
     constructor(){
-        this.availableFaces = [1,2,3,'Fist','Heart']; //took out bolt
+        this.availableFaces = [{
+            points: 1,
+            face: 1
+        }, {
+            points: 2,
+            face: 2
+        }, {
+            points: 3,
+            face: 3
+        }, {
+            health: -1,
+            face: 'Fist'
+        }, {
+            health: 1,
+            face: 'Heart'
+        }];
+       
+        
         this.domElement = null;
     }
     
     roll(){
         var randomFaceIndex = Math.floor(Math.random() * this.availableFaces.length);
         var randomFace = this.availableFaces[randomFaceIndex];
-        this.domElement.text( randomFace );
+        this.domElement.text( randomFace.face );
 
         console.log(randomFace);
         return randomFace;
