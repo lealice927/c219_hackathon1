@@ -1,7 +1,7 @@
 
 class KingOfTokyo {
     constructor() {
-        debugger;
+
         this.insideTokyoElement = $(".insideTokyo");
         this.outsideTokyoElement = $(".outsideTokyo");
         this.monsterElements = [];
@@ -17,11 +17,25 @@ class KingOfTokyo {
         // property array  to store monster in tokyo
         //array to store monster outside of tokyo
     }
+    displayMonsterStats() {
+    console.log('Display Stats:', displayMonsterStats);
+    $('.health .value').text(health);
+    $('.victory .value').text(victory);
+
+    //this all will tie in w/ dice results
+        //if monster takes damage, decrement health
+        //else monster rolls hearts, increment health
+
+        //if monster rolls 1,2,3... adds to victory points
+
+        //need to store the result o
+    }
 
     createMonster(monsterName) {
         var newMonster = new Monster();
         this.monsterStorage.push(newMonster);
-        this.monsterLocation.push(newMonster)
+        this.monsterLocation.outside.push(newMonster);
+        render();
         //take in stats of monster
         //create monster obj
         //add monster to monster list/storage

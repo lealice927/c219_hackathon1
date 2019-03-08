@@ -9,15 +9,16 @@ function startApp() {
         var domElement = allDice[i].render();
         $("body").append(domElement);
     }
-
-//     landing = new LandingPage();
+    $("button").click(rollAllDice);
     new KingOfTokyo();
 }
 
 function rollAllDice() {
-    for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {
-        allDice[diceIndex].roll();
+    var results = [];
+    for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {        
+        results.push(allDice[diceIndex].roll());
     }
+    console.log(results);
 }
 
 class Monster {
@@ -31,12 +32,11 @@ class Monster {
             victory: 0,
             bolt: 0
         }
-
-//         this.attack = function(){
-//             console.log("you got attacked")
-//         }
+        //this.attack = function(){
+        //console.log("you got attacked")
+        //}
     }
-  
+
     enterTokyo() {
         if (this.inTokyo) {
             return;
@@ -50,7 +50,7 @@ class Monster {
     changeHealth(amount) {
         if (this.inTokyo && amount > 0) {
             console.warn('cannot gain health while in tokyo');
-            return ;
+            return;
         }
         this.points.health += amount;
         if (this.points.health < 0) {
@@ -69,16 +69,14 @@ class Monster {
         }
         return this.points.victory;
     }
-
-//     changeBoltPoints(amount) {
-//         this.points.bolt += amount;
-//     }
 }
+    //     changeBoltPoints(amount) {
+    //         this.points.bolt += amount;
+    //     }
 
-    die(attacker) {
-        this.life = false;
-        this.speak('You died! You were killed by ' + attacker.Monster);
-    }
-}
-var testMonster = new Monster("Cyber Kitty");
-var testMonster = new Monster("Space Penguin");
+// die(attacker) {
+//     this.life = false;
+//     this.speak('You died! You were killed by ' + attacker.Monster);
+// }
+var cyberKitty = new Monster("Cyber Kitty");
+var spacePenguin = new Monster("Space Penguin");

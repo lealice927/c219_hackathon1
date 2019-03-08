@@ -1,7 +1,23 @@
+.diceContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+
 .dice{
-    height: 50px;
-    width: 50px;
-    border: 1px solid black;
+    height: 75px;
+    width: 75px;
+    border-radius: 10px;
+    border: 2px solid green;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: green;
+    text-align: center;
+    font-size: 2rem;
     
 }
 button {
@@ -13,4 +29,5 @@ button {
     text-transform: uppercase;
     width: 100px;
     cursor: pointer;
+    left: 30%;
   }
