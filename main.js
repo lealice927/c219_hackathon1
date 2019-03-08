@@ -29,7 +29,10 @@ function rollAllDice() {
             damage += rolledDice.health;
         }
     }
+    $('.heart').text("Health: " + heart);
+    $('.victoryPoint').text("Victory Points: " + victoryPoint);
 
+    
     console.log("Heart ", heart);
     console.log("Damage ", damage);
     console.log("Victory Point ", victoryPoint);
@@ -42,7 +45,6 @@ function rollAllDice() {
     opposingMonster.changeHealth(damage);
 
     changeTurns();
-    console.log(results);
 }
 
 function changeTurns() {
