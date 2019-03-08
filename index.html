@@ -2,41 +2,52 @@
 <html>
 
 <head>
-    <title>King Of Tokyo</title>
-    <link rel="stylesheet" href="dice.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <title>King Of Tokyo</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="dice.css">
+    <link rel="stylesheet" type="text/css" href="landingPage.css">
+
+    <script type="text/javascript" src="landingPage.js"></script>
     <script type="text/javascript" src="player.js"></script>
     <script type="text/javascript" src="dice.js"></script>
-
     <script type="text/javascript" src="game.js"></script>
-
     <script type="text/javascript" src="main.js"></script>
-    
 
 </head>
 
 <body>
+
     <div class="tokyo-background">
-            <div class="diceContainer"></div>
-            <button type="button">Roll Dice</button>
-       
+        <div class="diceContainer"></div>
+
         <div class="insideTokyo">Inside Tokyo</div>
         <div class="outsideTokyo">Outside Tokyo</div>
 
-        <div class="MonsterContainer">
-            <div class="Monster">Player 1 Here!</div>
-            <div class="Monster">Player 2 Here!</div>
+        <div class="MonsterContainerStats">
+            <div class="Monster CyberKitty">
+                <div class="health">
+                    <div class="label">Health:</div>
+                    <div class="value"></div>
+                </div>
+
+                <div class="victory">
+                    <div class="label">Victory:</div>
+                    <div class="value"></div>
+                </div>
+
+            </div>
+            <div class="Monster SpacePenguin"></div>
         </div>
-      
-        
+        <button type="button">Roll Dice</button>
+
+
+
+
 
     </div>
-       
-       
 
-    
-    
 </body>
 
 </html>

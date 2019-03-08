@@ -1,21 +1,27 @@
 $(document).ready(startApp);
 
+
+
 function startApp() {
     allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
     for (var i = 0; i < allDice.length; i++) {
         var domElement = allDice[i].render();
         $("body").append(domElement);
-        $("button").click(rollAllDice);
     }
+    $("button").click(rollAllDice);
     new KingOfTokyo();
 }
 
 function rollAllDice() {
 
-    for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {
-        allDice[diceIndex].roll();
-        console.log(this.rollAllDice);
+
+
+    var results = [];
+    for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {        
+        results.push(allDice[diceIndex].roll());
+
     }
+    console.log(results);
 }
 
 class Monster {
@@ -29,6 +35,9 @@ class Monster {
             victory: 0,
             bolt: 0
         }
+        //this.attack = function(){
+        //console.log("you got attacked")
+        //}
     }
 
 
@@ -37,7 +46,7 @@ class Monster {
             return;
         } 
         this.inTokyo = true;
-        this.testMonster1 = enterTokyo;
+        this.cyberKitty = enterTokyo;
         if (this.diceResult) {
             return;//return somewhere, not sure yet
         }
@@ -45,6 +54,7 @@ class Monster {
         this.changeVictoryPoints(diceResult);
         this.changeHealth(0);
         this.attack;
+        this.changeVictoryPoints(1); //should only add once a turn
     }
 
     leaveTokyo() {
@@ -54,7 +64,7 @@ class Monster {
         this.changeHealth(diceResult);
         this.changeVictoryPoints(diceResult);
         this.inTokyo = false;
-        this.testMonster2 = inTokyo;
+        this.spacePenguin = inTokyo;
     }
  
       
@@ -87,5 +97,15 @@ class Monster {
     }
 
 }
-var testMonster1 = new Monster("Cyber_Kitty");
-var testMonster2 = new Monster("Space_Penguin");
+
+
+    //     changeBoltPoints(amount) {
+    //         this.points.bolt += amount;
+    //     }
+
+// die(attacker) {
+//     this.life = false;
+//     this.speak('You died! You were killed by ' + attacker.Monster);
+// }
+var cyberKitty = new Monster("Cyber Kitty");
+var spacePenguin = new Monster("Space Penguin");

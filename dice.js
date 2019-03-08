@@ -1,10 +1,10 @@
-class DiceContainer{
-    constructor(){
-       // this.selectedDice = [];
-        this.Dice = [];
-       // this.rollsRemaining = 3;
-    }
-}
+// class DiceContainer{
+//     constructor(){
+//        // this.selectedDice = [];
+//         this.Dice = [];
+//        // this.rollsRemaining = 3;
+//     }
+// }
 //use push method to send dice to selected dice
 // class SelectedDice{
 //     constructor(){
@@ -19,9 +19,8 @@ class DiceContainer{
 
 class Dice{
     constructor(){
-        this.availableFaces = [1,2,3,'Fist','Heart'];
+        this.availableFaces = [1,2,3,'Fist','Heart']; //took out bolt
         this.domElement = null;
-        //this.dice.push( selectedDice );
     }
     
     roll(){
@@ -29,6 +28,9 @@ class Dice{
         var randomFace = this.availableFaces[randomFaceIndex];
         this.domElement.text( randomFace );
 
+        console.log(randomFace);
+        return randomFace;
+        //store information from rolls and send it to "createMonster"
     }
     render(){
         this.domElement = $("<div>")
@@ -36,11 +38,8 @@ class Dice{
             .text('KOT')
         return this.domElement;
     }
+
+    //need to know which monster is the current player
+    //so that it sends the output of dice to that monster
+    //associate active player w/ monster
 }
-
-// class RollsRemaining{
-//     constructor(){
-
-//     }
-// }
-
