@@ -22,20 +22,18 @@ function startApp() {
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
     $('.outsideVictoryPoint').text("Victory Points: " + opposingMonster.points.victory)
 
-  //  new KingOfTokyo();
 }
+
+var playerTurn = true;
+
 function rollAllDice() {
 
-    // var results = [];
-    // for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {        
-    //     results.push(allDice[diceIndex].roll());
-        
-    // }
     var victoryPoint = 0;
     var heart = 0;
     var damage = 0;
     for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {        
-        var rolledDice = allDice[diceIndex].roll()
+        var rolledDice = allDice[diceIndex].roll();
+        console.log('Rolled dice: ', rolledDice);
         if (rolledDice.points) {
             victoryPoint += rolledDice.points;
         } else if (rolledDice.health > 0) {
@@ -45,37 +43,45 @@ function rollAllDice() {
         }
     }
 
+    console.log('Rolled Dice Heart: ', heart)
+    console.log('Rolled Dice Damage: ', damage)
+    console.log('Rolled Dice victoryPoint: ', victoryPoint)
+
     //do a conditional here?
     //change/add additional class condition for players
 
-// debugger;
-    // $('.currentMonster .heart').text('Health: ' + heart);
-    // $('.opposingMonster .heart').text('Health: ' + heart);
-    // $('.currentMonster .victoryPoint').text('Victory Point: ' + victoryPoint);
-    // $('.opposingMonster .victoryPoint').text('Victory Point: ' + victoryPoint);
     
     var currentMonster = players[0];
     var opposingMonster = players[1];
 
-  //  $('.heart').text("Health: " + heart);
-  //  $('.victoryPoint').text("Victory Points: " + victoryPoint);
+    if (playerTurn){
+        currentMonster.changeHealth(heart);
+        currentMonster.changeVictoryPoints(victoryPoint);
+        currentMonster.attack(damage);
+    } else {
+        opposingMonster.changeHealth(heart);
+        opposingMonster.changeVictoryPoints(victoryPoint);
+        opposingMonster.attack(damage);
+    }
 
-    
     console.log("Heart: ", heart);
     console.log("Damage: ", damage);
     console.log("Victory Point: ", victoryPoint);
-
-   
-
-   
-   // opposingMonster.changeHealth(damage);
-
     changeTurns();
+    updateStats();
 }
 
 function changeTurns() {
-    var next = players.shift();
-    players.push(next);
+    playerTurn = !playerTurn
+   
+}
+
+function updateStats(){
+    
+    $('.insideHeart').text("Health: " + currentMonster.points.health)
+    $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
+    $('.outsideHeart').text("Health: " + opposingMonster.points.health)
+    $('.outsideVictoryPoint').text("Victory Points: " + opposingMonster.points.victory)
 }
 
 class Monster {
@@ -117,26 +123,39 @@ class Monster {
     }
 
     changeHealth(amount) {
-        if (this.inTokyo && amount > 0) {
-            // console.warn('cannot gain health while in tokyo');
-            return;
-        }
-        this.points.health += amount;
-        if (this.points.health < 0) {
-            this.points.health = 0;
-        }
-        else if (this.points.health > 10) {
-            this.points.health = 10;
+        if(this.points.health >=  10){
+            break;
+        } else {
+            if ((this.points.health + amount) >= 10){
+                this.points.health = 10;
+            } else {
+                this.points.health += amount
+            }
         }
     }
+
     changeVictoryPoints(amount) {
         this.points.victory += amount;
         if (this.points.victory > 50) {
             this.points.victory = 50;
-        } else if (this.points.victory < 0) {
-            this.points.victory = 0;
-        }
+            console.log(this.name, " You Won")
+        } 
         return this.points.victory;
+    }
+
+    attack(claws){
+        if (playerTurn){
+            opposingMonster.points.health -= claws
+            if(opposingMonster.points.health <= 0 ){
+                opposingMonster.die()
+            }
+        } else {
+            currentMonster.points.health -= claws
+            if(currentMonster.points.health <= 0 ){
+                currentMonster.die()
+            }
+        }
+        
     }
 
     die(attacker) {
