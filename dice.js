@@ -11,7 +11,7 @@ class Dice{
             face: 3
         }, {
             health: -1,
-            face: 'Fist'
+            face: 'Claw'
         }, {
             health: 1,
             face: 'Heart'
@@ -33,7 +33,7 @@ class Dice{
     render(){
         this.domElement = $("<div>")
             .addClass('dice')
-            .text('KOT')
+            .text('KoT')
         return this.domElement;
     }
 

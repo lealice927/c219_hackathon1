@@ -29,13 +29,17 @@ function rollAllDice() {
             damage += rolledDice.health;
         }
     }
+
+    //do a conditional here?
+    //change/add additional class condition for players
+
     $('.heart').text("Health: " + heart);
     $('.victoryPoint').text("Victory Points: " + victoryPoint);
 
     
-    console.log("Heart ", heart);
-    console.log("Damage ", damage);
-    console.log("Victory Point ", victoryPoint);
+    console.log("Heart: ", heart);
+    console.log("Damage: ", damage);
+    console.log("Victory Point: ", victoryPoint);
 
     var currentMonster = players[0];
     var opposingMonster = players[1];
@@ -61,11 +65,7 @@ class Monster {
         this.points = {
             health: 10,
             victory: 0,
-            bolt: 0
         }
-        //this.attack = function(){
-        //console.log("you got attacked")
-        //}
     }
 
     enterTokyo() {
@@ -96,7 +96,7 @@ class Monster {
 
     changeHealth(amount) {
         if (this.inTokyo && amount > 0) {
-            console.warn('cannot gain health while in tokyo');
+            // console.warn('cannot gain health while in tokyo');
             return;
         }
         this.points.health += amount;
@@ -109,8 +109,8 @@ class Monster {
     }
     changeVictoryPoints(amount) {
         this.points.victory += amount;
-        if (this.points.victory > 20) {
-            this.points.victory = 20;
+        if (this.points.victory > 50) {
+            this.points.victory = 50;
         } else if (this.points.victory < 0) {
             this.points.victory = 0;
         }
@@ -123,9 +123,4 @@ class Monster {
     }
 
 }
-// die(attacker) {
-//     this.life = false;
-//     this.speak('You died! You were killed by ' + attacker.Monster);
-// }
-
 var players = [new Monster("Cyber Kitty"), new Monster("Space Penguin")];
