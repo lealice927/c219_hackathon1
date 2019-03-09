@@ -2,12 +2,11 @@
 <html>
 
 <head>
-    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <title>King Of Tokyo</title>
 
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="dice.css">
-
     <script type="text/javascript" src="dice.js"></script>
     <script type="text/javascript" src="game.js"></script>
     <script type="text/javascript" src="main.js"></script>
@@ -17,7 +16,10 @@
 <body>
 
     <div class="tokyo-background">
+        <button type="button">Roll Dice</button>
+
         <div class="diceContainer"></div>
+
 
         <div class="insideTokyo">Inside Tokyo
             <div class="displayStats">
@@ -32,22 +34,21 @@
             </div>
         </div>
 
-        <div class="MonsterContainerStats">
-            <div class="Monster CyberKitty">
+        <div class="monsterContainerStats">
+            <div class="monsterCyberKitty">
                 <div class="health">
-                    <div class="label">Health:</div>
+                    <div class="label"></div>
                     <div class="value"></div>
                 </div>
 
                 <div class="victory">
-                    <div class="label">Victory:</div>
+                    <div class="label"></div>
                     <div class="value"></div>
                 </div>
 
             </div>
-            <div class="Monster SpacePenguin"></div>
+            <div class="monsterSpacePenguin"></div>
         </div>
-        <button type="button">Roll Dice</button>
     </div>
 
 </body>

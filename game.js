@@ -10,13 +10,8 @@ class KingOfTokyo {
             inside: [],
             outside: []
         }
-        //domelement for inside tokyo
-        //domelement for tokyobay
-        //domelement for outside tokyo
-        //array to store monsters
-        // property array  to store monster in tokyo
-        //array to store monster outside of tokyo
     }
+    
     displayMonsterStats() {
     console.log('Display Stats:', displayMonsterStats);
     $('.health .value').text(health);
@@ -43,8 +38,8 @@ class KingOfTokyo {
         //call monster's render method, & place html to domelement & append it
     }
     render() {
-        for (var i = 0; i < this.monsterStorage.length; i++) {
-            var currentMonster = this.monsterStorage[i];
+        for (var kotmonster = 0; kotmonster < this.monsterStorage.length; kotmonster++) {
+            var currentMonster = this.monsterStorage[kotmonster];
             var monster = $("<div>")
                 .addClass('monster')
                 .text(currentMonster.name);

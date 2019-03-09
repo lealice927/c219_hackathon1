@@ -1,7 +1,7 @@
 body {
     margin: 0;
     background-color: black;
-    position: absolute;
+    height: 100vh;
 }
 
 .tokyo-background{
@@ -9,18 +9,17 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
-    height: 100vh;
-    width: 100vw;
-    
+    height: 100%;
+    width: 100%;    
 }
 
 .insideTokyo {
     background-color: red;
     border: 2px solid black;
-    width: 250px;
+    width: 300px;
     height: 250px;
     position: relative;
-    top: 20%;
+    top: 15%;
     left: 20%;
     font-size: 24px;
     font-weight: bold;
@@ -35,7 +34,7 @@ body {
     border: 2px solid black;
     width: 500px;
     height: 200px;
-    top: 45%;
+    top: 35%;
     left: 50%;
     position: relative;
     font-size: 24px;
@@ -46,7 +45,7 @@ body {
     background-position: center;
 }
 
-.MonsterContainerStats{
+.monsterContainerStats{
     background-color: purple;
     border: 1px solid black;
     color: white;
@@ -54,9 +53,9 @@ body {
     width: 200px;
     font-size: 2rem;
     position: relative;
-    top: 20%;
+    top: 10%;
     left: 20%;
-    opacity: .75;
+    opacity: .5;
     cursor: pointer;
     display: flex;
 
