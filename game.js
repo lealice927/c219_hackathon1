@@ -11,9 +11,13 @@ class KingOfTokyo {
             outside: []
         }
     }
-    
+
     displayMonsterStats() {
     console.log('Display Stats:', displayMonsterStats);
+    // $('currentMonster .health .value').text(health);
+    // $('currentMonster .victory .value').text(victory);
+    // $('opposingMonster .health .value').text(health);
+    // $('opposingMonster .victory .value').text(victory);
     $('.health .value').text(health);
     $('.victory .value').text(victory);
 

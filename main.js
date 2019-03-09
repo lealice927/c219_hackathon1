@@ -1,5 +1,12 @@
 $(document).ready(startApp);
 
+// make a global flag for player turn
+// run dice roll function, grab the numbers and do associated actions to opposing player
+// for health, make conditional 
+// deal dmg to opposing player
+// sum of dice will add to victory points 
+// health and victory points are intrinsic properties of the monsters so grab their current values +/- dice values and then update inside/outside tokyo display stats
+
 function startApp() {
     allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
     for (var i = 0; i < allDice.length; i++) {
@@ -7,7 +14,15 @@ function startApp() {
         $("body").append(domElement);
     }
     $("button").click(rollAllDice);
-    new KingOfTokyo();
+    var currentMonster = players[0];
+    var opposingMonster = players[1];
+    
+    $('.insideHeart').text("Health: " + currentMonster.points.health)
+    $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
+    $('.outsideHeart').text("Health: " + opposingMonster.points.health)
+    $('.outsideVictoryPoint').text("Victory Points: " + opposingMonster.points.victory)
+
+  //  new KingOfTokyo();
 }
 function rollAllDice() {
 
@@ -33,20 +48,27 @@ function rollAllDice() {
     //do a conditional here?
     //change/add additional class condition for players
 
-    $('.heart').text("Health: " + heart);
-    $('.victoryPoint').text("Victory Points: " + victoryPoint);
+// debugger;
+    // $('.currentMonster .heart').text('Health: ' + heart);
+    // $('.opposingMonster .heart').text('Health: ' + heart);
+    // $('.currentMonster .victoryPoint').text('Victory Point: ' + victoryPoint);
+    // $('.opposingMonster .victoryPoint').text('Victory Point: ' + victoryPoint);
+    
+    var currentMonster = players[0];
+    var opposingMonster = players[1];
+
+  //  $('.heart').text("Health: " + heart);
+  //  $('.victoryPoint').text("Victory Points: " + victoryPoint);
 
     
     console.log("Heart: ", heart);
     console.log("Damage: ", damage);
     console.log("Victory Point: ", victoryPoint);
 
-    var currentMonster = players[0];
-    var opposingMonster = players[1];
+   
 
-    currentMonster.changeHealth(heart);
-    currentMonster.changeVictoryPoints(victoryPoint);
-    opposingMonster.changeHealth(damage);
+   
+   // opposingMonster.changeHealth(damage);
 
     changeTurns();
 }
