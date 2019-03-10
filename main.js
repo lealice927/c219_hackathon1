@@ -14,8 +14,6 @@ function startApp() {
         $("body").append(domElement);
     }
     $("button").click(rollAllDice);
-    var currentMonster = players[0];
-    var opposingMonster = players[1];
     
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
@@ -23,8 +21,6 @@ function startApp() {
     $('.outsideVictoryPoint').text("Victory Points: " + opposingMonster.points.victory)
 
 }
-
-var playerTurn = true;
 
 function rollAllDice() {
 
@@ -50,9 +46,8 @@ function rollAllDice() {
     //do a conditional here?
     //change/add additional class condition for players
 
-    
-    var currentMonster = players[0];
-    var opposingMonster = players[1];
+    debugger;
+   
 
     if (playerTurn){
         currentMonster.changeHealth(heart);
@@ -77,7 +72,7 @@ function changeTurns() {
 }
 
 function updateStats(){
-    
+    debugger;
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
@@ -124,7 +119,7 @@ class Monster {
 
     changeHealth(amount) {
         if(this.points.health >=  10){
-            break;
+            return;
         } else {
             if ((this.points.health + amount) >= 10){
                 this.points.health = 10;
@@ -145,12 +140,12 @@ class Monster {
 
     attack(claws){
         if (playerTurn){
-            opposingMonster.points.health -= claws
+            opposingMonster.points.health += claws
             if(opposingMonster.points.health <= 0 ){
                 opposingMonster.die()
             }
         } else {
-            currentMonster.points.health -= claws
+            currentMonster.points.health += claws
             if(currentMonster.points.health <= 0 ){
                 currentMonster.die()
             }
@@ -164,4 +159,9 @@ class Monster {
     }
 
 }
+
 var players = [new Monster("Cyber Kitty"), new Monster("Space Penguin")];
+
+var playerTurn = true;
+var currentMonster = players[0];
+var opposingMonster = players[1];
