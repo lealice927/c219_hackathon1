@@ -28,5 +28,5 @@ button {
     height: 75px;
     cursor: pointer;
     position: relative;
-    left: 50%;
+    top: 50%;
   }

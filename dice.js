@@ -1,5 +1,5 @@
-class Dice{
-    constructor(){
+class Dice {
+    constructor() {
         this.availableFaces = [{
             points: 1,
             face: 1
@@ -16,21 +16,21 @@ class Dice{
             health: 1,
             face: 'Heart'
         }];
-       
-        
+
+
         this.domElement = null;
     }
-    
-    roll(){
+
+    roll() {
         var randomFaceIndex = Math.floor(Math.random() * this.availableFaces.length);
         var randomFace = this.availableFaces[randomFaceIndex];
-        this.domElement.text( randomFace.face );
+        this.domElement.text(randomFace.face);
 
         console.log(randomFace);
         return randomFace;
         //store information from rolls and send it to "createMonster"
     }
-    render(){
+    render() {
         this.domElement = $("<div>")
             .addClass('dice')
             .text('KoT')
