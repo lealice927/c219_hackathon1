@@ -78,10 +78,10 @@ function changeTurns() {
 
 function updateStats(){
     
-    $('.insideHeart').text("Health: " + currentMonster.points.health)
-    $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
-    $('.outsideHeart').text("Health: " + opposingMonster.points.health)
-    $('.outsideVictoryPoint').text("Victory Points: " + opposingMonster.points.victory)
+    $('.insideHeart').append("Health: " + currentMonster.points.health)
+    $('.insideVictoryPoint').append("Victory Points: " + currentMonster.points.victory)
+    $('.outsideHeart').append("Health: " + opposingMonster.points.health)
+    $('.outsideVictoryPoint').append("Victory Points: " + opposingMonster.points.victory)
 }
 
 class Monster {
@@ -109,7 +109,7 @@ class Monster {
         this.changeVictoryPoints(diceResult);
         this.changeHealth(0);
         this.attack;
-        this.changeVictoryPoints(1); //should only add once a turn
+        this.changeVictoryPoints(1); 
     }
 
     leaveTokyo() {
