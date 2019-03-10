@@ -1,12 +1,5 @@
 $(document).ready(startApp);
 
-// make a global flag for player turn
-// run dice roll function, grab the numbers and do associated actions to opposing player
-// for health, make conditional 
-// deal dmg to opposing player
-// sum of dice will add to victory points 
-// health and victory points are intrinsic properties of the monsters so grab their current values +/- dice values and then update inside/outside tokyo display stats
-
 function startApp() {
     allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
     for (var i = 0; i < allDice.length; i++) {
@@ -14,7 +7,7 @@ function startApp() {
         $("body").append(domElement);
     }
     $("button").click(rollAllDice);
-    
+
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
@@ -27,7 +20,7 @@ function rollAllDice() {
     var victoryPoint = 0;
     var heart = 0;
     var damage = 0;
-    for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {        
+    for (var diceIndex = 0; diceIndex < allDice.length; diceIndex++) {
         var rolledDice = allDice[diceIndex].roll();
         console.log('Rolled dice: ', rolledDice);
         if (rolledDice.points) {
@@ -43,13 +36,7 @@ function rollAllDice() {
     console.log('Rolled Dice Damage: ', damage)
     console.log('Rolled Dice victoryPoint: ', victoryPoint)
 
-    //do a conditional here?
-    //change/add additional class condition for players
-
-    debugger;
-   
-
-    if (playerTurn){
+    if (playerTurn) {
         currentMonster.changeHealth(heart);
         currentMonster.changeVictoryPoints(victoryPoint);
         currentMonster.attack(damage);
@@ -59,19 +46,19 @@ function rollAllDice() {
         opposingMonster.attack(damage);
     }
 
-    console.log("Heart: ", heart);
-    console.log("Damage: ", damage);
-    console.log("Victory Point: ", victoryPoint);
+    // console.log("Heart: ", heart);
+    // console.log("Damage: ", damage);
+    // console.log("Victory Point: ", victoryPoint);
     changeTurns();
     updateStats();
 }
 
 function changeTurns() {
     playerTurn = !playerTurn
-   
+
 }
 
-function updateStats(){
+function updateStats() {
     debugger;
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
@@ -118,10 +105,10 @@ class Monster {
     }
 
     changeHealth(amount) {
-        if(this.points.health >=  10){
+        if (this.points.health >= 10) {
             return;
         } else {
-            if ((this.points.health + amount) >= 10){
+            if ((this.points.health + amount) >= 10) {
                 this.points.health = 10;
             } else {
                 this.points.health += amount
@@ -134,23 +121,23 @@ class Monster {
         if (this.points.victory > 50) {
             this.points.victory = 50;
             console.log(this.name, " You Won")
-        } 
+        }
         return this.points.victory;
     }
 
-    attack(claws){
-        if (playerTurn){
+    attack(claws) {
+        if (playerTurn) {
             opposingMonster.points.health += claws
-            if(opposingMonster.points.health <= 0 ){
-                opposingMonster.die()
+            if (opposingMonster.points.health <= 0) {
+                opposingMonster.die(currentMonster)
             }
         } else {
             currentMonster.points.health += claws
-            if(currentMonster.points.health <= 0 ){
-                currentMonster.die()
+            if (currentMonster.points.health <= 0) {
+                currentMonster.die(opposingMonster)
             }
         }
-        
+
     }
 
     die(attacker) {
