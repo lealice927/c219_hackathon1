@@ -1,11 +1,13 @@
 $(document).ready(startApp);
 
 function startApp() {
-    allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
-    for (var i = 0; i < allDice.length; i++) {
-        var domElement = allDice[i].render();
-        $("body").append(domElement);
+    allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];     //calling each dice object
+    for (var i = 0; i < allDice.length; i++) {                                              //looping through each dice
+        var domElement = allDice[i].render();                                               //displaying result for each dice
+        $("body").append(domElement);                                                       //appending result to DOM
     }
+    $("button").click(rollAllDice);                                                         //click handler for rolling action
+
     $("img").click(rollAllDice);
     
     $('.insideHeart').text("Health: " + currentMonster.points.health)
@@ -62,7 +64,6 @@ function changeTurns() {
 }
 
 function updateStats() {
-   
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
@@ -126,6 +127,10 @@ class Monster {
         this.points.victory += amount;
         if (this.points.victory > 50) {
             this.points.victory = 50;
+            if(this.points.victory == 50){
+                $('#modal').toggleClass('hide');
+ 
+            }
             console.log(this.name, " You Won")
         }
         return this.points.victory;
@@ -150,6 +155,19 @@ class Monster {
         this.life = false;
         this.speak('You died! You were killed by ' + attacker.Monster);
     }
+
+
+    win(currentMonster){
+        if(currentMonster.points.health <= 0){
+            $('#modal').toggleClass('hide');
+        } else if
+            (currentMonster.points.victory >= 50){
+                $('#modal').toggleClass('hide');
+            }
+            
+        }
+    }
+
     render(){
         this.domElement = $("<div>")
         .addClass('front')
@@ -157,6 +175,7 @@ class Monster {
         return this.domElement;
     }
 }
+
 
 var players = [new Monster("Cyber Kitty"), new Monster("Space Penguin")];
 
