@@ -10,14 +10,16 @@ body {
     height:100px;
     width:500px;
     font-size:25px;
-    background-color: blue;
+    /* background-color: blue; */
     position: absolute;
     float: center;
     top:70%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: justify;
+    z-index: 1;
  }
+
  .hide{
     display: none;
  }
@@ -26,7 +28,7 @@ body {
     background-image: url("images/kot-backgrounge-image.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;  
     font-size: auto; 
@@ -46,6 +48,9 @@ body {
     background-image: url('images/cyber-kitty.jpg');
     background-size: cover;
     background-position: center;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
 }
 
 .outsideTokyo {
@@ -62,6 +67,7 @@ body {
     background-image: url('images/space-penguin-small.png');
     background-size: cover;
     background-position: center;
+    border-radius: 20px;
 }
 
 
@@ -86,7 +92,6 @@ body {
     position: relative;
     top: 10%;
     left: 20%;
-    
     cursor: pointer;
     display: flex;
     float: left;
