@@ -2,6 +2,7 @@ body {
     margin: 0;
     background-color: black;
     height: 100vh;
+    
 }
 
 
@@ -27,7 +28,8 @@ body {
     background-position: center;
     position: relative;
     height: 100%;
-    width: 100%;    
+    width: 100%;  
+    font-size: auto; 
 }
 
 .insideTokyo {
@@ -63,17 +65,43 @@ body {
 }
 
 
-/* .monsterContainerStats{
+.currentPlayer{
+    background-color: black;
+    border: 1px solid rgb(49, 214, 226);
+    color: rgb(49, 214, 226);
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    left: 16%;
+    bottom: 39%;
+    position: absolute;
+}
+
+#monsterContainerStats{
     background-color: purple;
-    border: 1px solid black;
     color: white;
     height: 200px;
     width: 200px;
-    font-size: 2rem;
+    font-size: 1rem;
     position: relative;
     top: 10%;
     left: 20%;
-    opacity: .5;
+    
     cursor: pointer;
     display: flex;
-} */
+    float: left;
+    background-size: cover;
+    background-position: center;
+}
+
+#front, #back{
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+#front{
+    display: none;
+}
