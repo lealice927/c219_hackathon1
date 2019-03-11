@@ -24,9 +24,11 @@ button {
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
     text-transform: uppercase;
-    width: 75px;
+    width: 150px;
     height: 75px;
     cursor: pointer;
-    position: relative;
+    position: absolute;
+    float: left;
     top: 50%;
+    font-size: 1rem;
   }

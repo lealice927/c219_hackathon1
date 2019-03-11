@@ -45,7 +45,7 @@ body {
     background-position: center;
 }
 
-/* .monsterContainerStats{
+.monsterContainerStats{
     background-color: purple;
     border: 1px solid black;
     color: white;
@@ -55,7 +55,20 @@ body {
     position: relative;
     top: 10%;
     left: 20%;
-    opacity: .5;
+    
     cursor: pointer;
     display: flex;
-} */
+    
+    background-size: cover;
+    background-position: center;
+}
+.monsterContainerStats .front {
+    background-image: url('images/space-penguin-small.png');
+    background-size: cover;
+    background-position: center;
+}
+.back, .monsterContainerStats{
+    background-image: url('images/cyber-kitty.jpg');
+    background-size: cover;
+    background-position: center;
+}

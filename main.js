@@ -35,7 +35,7 @@ function rollAllDice() {
     console.log('Rolled Dice Heart: ', heart)
     console.log('Rolled Dice Damage: ', damage)
     console.log('Rolled Dice victoryPoint: ', victoryPoint)
-
+   
     if (playerTurn) {
         currentMonster.changeHealth(heart);
         currentMonster.changeVictoryPoints(victoryPoint);
@@ -55,11 +55,13 @@ function rollAllDice() {
 
 function changeTurns() {
     playerTurn = !playerTurn
-
+    // // addClass
+    // $("button").click(function(){
+    //     $(this).toggle(Monster)
 }
 
 function updateStats() {
-    debugger;
+    
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
@@ -76,6 +78,7 @@ class Monster {
             health: 10,
             victory: 0,
         }
+        this.domElement = null;
     }
 
     enterTokyo() {
@@ -144,7 +147,12 @@ class Monster {
         this.life = false;
         this.speak('You died! You were killed by ' + attacker.Monster);
     }
-
+    render(){
+        this.domElement = $("<div>")
+        .addClass('front')
+        .text('Current Player')
+        return this.domElement;
+    }
 }
 
 var players = [new Monster("Cyber Kitty"), new Monster("Space Penguin")];
@@ -152,3 +160,5 @@ var players = [new Monster("Cyber Kitty"), new Monster("Space Penguin")];
 var playerTurn = true;
 var currentMonster = players[0];
 var opposingMonster = players[1];
+
+ 
