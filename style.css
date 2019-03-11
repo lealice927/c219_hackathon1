@@ -4,11 +4,28 @@ body {
     height: 100vh;
 }
 
+
+.modal{
+    height:100px;
+    width:500px;
+    font-size:25px;
+    background-color: blue;
+    position: absolute;
+    float: center;
+    top:70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: justify;
+ }
+ .hide{
+    display: none;
+ }
+
 .tokyo-background{
     background-image: url("images/kot-backgrounge-image.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    position: absolute;
+    position: relative;
     height: 100%;
     width: 100%;    
 }
@@ -44,6 +61,7 @@ body {
     background-size: cover;
     background-position: center;
 }
+
 
 /* .monsterContainerStats{
     background-color: purple;

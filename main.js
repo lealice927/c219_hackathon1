@@ -1,14 +1,14 @@
 $(document).ready(startApp);
 
 function startApp() {
-    allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];
-    for (var i = 0; i < allDice.length; i++) {
-        var domElement = allDice[i].render();
-        $("body").append(domElement);
+    allDice = [new Dice(), new Dice(), new Dice(), new Dice(), new Dice(), new Dice()];     //calling each dice object
+    for (var i = 0; i < allDice.length; i++) {                                              //looping through each dice
+        var domElement = allDice[i].render();                                               //displaying result for each dice
+        $("body").append(domElement);                                                       //appending result to DOM
     }
-    $("button").click(rollAllDice);
+    $("button").click(rollAllDice);                                                         //click handler for rolling action
 
-    $('.insideHeart').text("Health: " + currentMonster.points.health)
+    $('.insideHeart').text("Health: " + currentMonster.points.health)                       
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
     $('.outsideVictoryPoint').text("Victory Points: " + opposingMonster.points.victory)
@@ -59,7 +59,6 @@ function changeTurns() {
 }
 
 function updateStats() {
-    debugger;
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
@@ -120,6 +119,10 @@ class Monster {
         this.points.victory += amount;
         if (this.points.victory > 50) {
             this.points.victory = 50;
+            if(this.points.victory == 50){
+                $('#modal').toggleClass('hide');
+ 
+            }
             console.log(this.name, " You Won")
         }
         return this.points.victory;
@@ -145,7 +148,16 @@ class Monster {
         this.speak('You died! You were killed by ' + attacker.Monster);
     }
 
-}
+    win(currentMonster){
+        if(currentMonster.points.health <= 0){
+            $('#modal').toggleClass('hide');
+        } else if
+            (currentMonster.points.victory >= 50){
+                $('#modal').toggleClass('hide');
+            }
+            
+        }
+    }
 
 var players = [new Monster("Cyber Kitty"), new Monster("Space Penguin")];
 
