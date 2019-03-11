@@ -29,7 +29,7 @@ class KingOfTokyo {
 
         //need to store the result o
     }
-
+    
     createMonster(monsterName) {
         var newMonster = new Monster();
         this.monsterStorage.push(newMonster);

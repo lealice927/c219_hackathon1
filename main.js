@@ -6,8 +6,8 @@ function startApp() {
         var domElement = allDice[i].render();
         $("body").append(domElement);
     }
-    $("button").click(rollAllDice);
-
+    $("img").click(rollAllDice);
+    
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
@@ -16,7 +16,7 @@ function startApp() {
 }
 
 function rollAllDice() {
-
+    
     var victoryPoint = 0;
     var heart = 0;
     var damage = 0;
@@ -35,7 +35,7 @@ function rollAllDice() {
     console.log('Rolled Dice Heart: ', heart)
     console.log('Rolled Dice Damage: ', damage)
     console.log('Rolled Dice victoryPoint: ', victoryPoint)
-
+   
     if (playerTurn) {
         currentMonster.changeHealth(heart);
         currentMonster.changeVictoryPoints(victoryPoint);
@@ -55,16 +55,21 @@ function rollAllDice() {
 
 function changeTurns() {
     playerTurn = !playerTurn
-
+    
+    // // addClass
+    // $("button").click(function(){
+    //     $(this).toggle(Monster)
 }
 
 function updateStats() {
-    debugger;
+   
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
     $('.outsideVictoryPoint').text("Victory Points: " + opposingMonster.points.victory)
+    
 }
+
 
 class Monster {
     constructor(monsterName, image, inTokyo) {
@@ -76,6 +81,7 @@ class Monster {
             health: 10,
             victory: 0,
         }
+        this.domElement = null;
     }
 
     enterTokyo() {
@@ -91,7 +97,7 @@ class Monster {
         this.changeVictoryPoints(diceResult);
         this.changeHealth(0);
         this.attack;
-        this.changeVictoryPoints(1); //should only add once a turn
+        this.changeVictoryPoints(1); 
     }
 
     leaveTokyo() {
@@ -144,7 +150,12 @@ class Monster {
         this.life = false;
         this.speak('You died! You were killed by ' + attacker.Monster);
     }
-
+    render(){
+        this.domElement = $("<div>")
+        .addClass('front')
+        .text('Current Player')
+        return this.domElement;
+    }
 }
 
 var players = [new Monster("Cyber Kitty"), new Monster("Space Penguin")];
@@ -152,3 +163,9 @@ var players = [new Monster("Cyber Kitty"), new Monster("Space Penguin")];
 var playerTurn = true;
 var currentMonster = players[0];
 var opposingMonster = players[1];
+
+$(function () {
+    $("img").click( function () {
+      $("img").toggle()
+    })
+  });
