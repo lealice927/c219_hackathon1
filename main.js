@@ -166,7 +166,7 @@ class Monster {
             }
             
         }
-    }
+    
 
     render(){
         this.domElement = $("<div>")
@@ -188,3 +188,8 @@ $(function () {
       $("img").toggle()
     })
   });
+
+//   if(this.points.victory == 50){
+//         $('#modal').toggleClass('hide');
+
+//      }
