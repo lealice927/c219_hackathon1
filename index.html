@@ -9,7 +9,11 @@
     <link rel="stylesheet" type="text/css" href="dice.css">
     <script type="text/javascript" src="dice.js"></script>
     <script type="text/javascript" src="game.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="main.js">
+        $("monsterContainerStats").click(function () {
+            $(this).find('img').toggle();
+        });​
+    </script>
 
 </head>
 
@@ -17,8 +21,8 @@
 
     <div class="tokyo-background">
 
-        <div class="diceContainer"></div><button type="button">Roll Dice</button>
-        
+        <div class="diceContainer"></div>
+
         <div class="insideTokyo">Inside Tokyo
             <div class="displayStats">
                 <div class="insideHeart"></div>
@@ -31,31 +35,16 @@
                 <div class="outsideVictoryPoint"></div>
             </div>
         </div>
-
-        <div class="monsterContainerStats">
-            <div class="monsterCyberKitty">
-                <div class="front">
-                    <div class="label"></div>
-                    <div class="value"></div>
-                </div>
-
-                <div class="victory">
-                    <div class="label"></div>
-                    <div class="value"></div>
-                </div>
-
+        
+            <div id="monsterContainerStats">
+                <img id="front" src="/Users/chrisg/Desktop/lfz/c219_hackathon1/images/space-penguin.jpg" />
+                <img id="back" src="/Users/chrisg/Desktop/lfz/c219_hackathon1/images/cyber-kitty.jpg" />
             </div>
-            <div class="monsterSpacePenguin">
-                    <div class="back">
-            </div>
+        
 
-
-        </div>
-
-     
-
+            <div class="currentPlayer">Click Image Below to Roll Dice</div>
     </div>
-
+ 
 </body>
 
 </html>

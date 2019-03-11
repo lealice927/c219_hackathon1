@@ -6,8 +6,8 @@ function startApp() {
         var domElement = allDice[i].render();
         $("body").append(domElement);
     }
-    $("button").click(rollAllDice);
-
+    $("img").click(rollAllDice);
+    
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
@@ -16,7 +16,7 @@ function startApp() {
 }
 
 function rollAllDice() {
-
+    
     var victoryPoint = 0;
     var heart = 0;
     var damage = 0;
@@ -55,18 +55,21 @@ function rollAllDice() {
 
 function changeTurns() {
     playerTurn = !playerTurn
+    
     // // addClass
     // $("button").click(function(){
     //     $(this).toggle(Monster)
 }
 
 function updateStats() {
-    
+   
     $('.insideHeart').text("Health: " + currentMonster.points.health)
     $('.insideVictoryPoint').text("Victory Points: " + currentMonster.points.victory)
     $('.outsideHeart').text("Health: " + opposingMonster.points.health)
     $('.outsideVictoryPoint').text("Victory Points: " + opposingMonster.points.victory)
+    
 }
+
 
 class Monster {
     constructor(monsterName, image, inTokyo) {
@@ -161,4 +164,8 @@ var playerTurn = true;
 var currentMonster = players[0];
 var opposingMonster = players[1];
 
- 
+$(function () {
+    $("img").click( function () {
+      $("img").toggle()
+    })
+  });
